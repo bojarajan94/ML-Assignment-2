@@ -21,9 +21,9 @@ st.title('Wine Quality Prediction Dashboard')
 
 # Example of how to get data if this were run standalone (requires saving X_test, y_test, etc.):
 try:
-    X_test = pd.read_csv('X_test.csv').values # Load X_test
-    y_test = pd.read_csv('y_test.csv')['label'] # Load y_test
-    # Load models from .pkl files if they were saved
+    X_test = pd.read_csv("X_test.csv").values
+    y_test = pd.read_csv("y_test.csv").values.ravel()
+
     models = {
         "Logistic Regression": joblib.load("model/logisticregression.pkl"),
         "Decision Tree": joblib.load("model/decisiontree.pkl"),
@@ -32,9 +32,11 @@ try:
         "Random Forest": joblib.load("model/randomforest.pkl"),
         "XGBoost": joblib.load("model/xgboost.pkl")
     }
-    results_df = pd.read_csv('results_df.csv') # Load results_df
-except FileNotFoundError:
-    st.error("Please run the model training cell in Colab first to generate data and models, or ensure necessary files are saved.")
+
+    results_df = pd.read_csv("results_df.csv")
+
+except Exception as e:
+    st.error(f"Error loading files: {e}")
     st.stop()
 
 # Display overall performance
