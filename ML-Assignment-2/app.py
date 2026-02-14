@@ -19,8 +19,11 @@ st.title('Wine Quality Prediction Dashboard')
 
 # Example of how to get data if this were run standalone (requires saving X_test, y_test, etc.):
 try:
+    # Get the directory of the current script
+    script_dir = os.path.dirname(__file__)
+
     # Load models from .pkl files
-    model_dir = "model"
+    model_dir = os.path.join(script_dir, "model")
     loaded_models = {}
     model_names = ["Logistic_Regression", "Decision_Tree", "kNN", "Naive_Bayes", "Random_Forest", "XGBoost"]
     for name in model_names:
@@ -33,7 +36,7 @@ try:
     models = loaded_models
 
     # Load X_test, y_test, results_df from saved files
-    data_dir = "data"
+    data_dir = os.path.join(script_dir, "data")
     X_test_path = os.path.join(data_dir, 'X_test.pkl')
     y_test_path = os.path.join(data_dir, 'y_test.pkl')
     results_df_path = os.path.join(data_dir, 'results_df.csv')
