@@ -25,12 +25,12 @@ try:
     y_test = pd.read_csv('y_test.csv')['label'] # Load y_test
     # Load models from .pkl files if they were saved
     models = {
-        "Logistic Regression": joblib.load("ml-assignment-2/model/logisticregression.pkl"),
-        "Decision Tree": joblib.load("ml-assignment-2/model/decisiontree.pkl"),
-        "kNN": joblib.load("ml-assignment-2/model/knn.pkl"),
-        "Naive Bayes": joblib.load("ml-assignment-2/model/naivebayes.pkl"),
-        "Random Forest": joblib.load("ml-assignment-2/model/randomforest.pkl"),
-        "XGBoost": joblib.load("ml-assignment-2/model/xgboost.pkl")
+        "Logistic Regression": joblib.load("model/logisticregression.pkl"),
+        "Decision Tree": joblib.load("model/decisiontree.pkl"),
+        "kNN": joblib.load("model/knn.pkl"),
+        "Naive Bayes": joblib.load("model/naivebayes.pkl"),
+        "Random Forest": joblib.load("model/randomforest.pkl"),
+        "XGBoost": joblib.load("model/xgboost.pkl")
     }
     results_df = pd.read_csv('results_df.csv') # Load results_df
 except FileNotFoundError:
